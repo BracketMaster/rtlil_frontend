@@ -1,0 +1,126 @@
+autoidx 0
+attribute \top 1
+attribute \generator "Amaranth"
+attribute \amaranth.hierarchy "top"
+module \top
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:7"
+  wire width 2 input 0 \sel
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:8"
+  wire width 16 input 1 \a
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:9"
+  wire width 16 input 2 \b
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:10"
+  wire width 16 output 3 \o
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:11"
+  wire width 1 output 4 \co
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:15"
+  wire width 1 $1
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:17"
+  wire width 1 $3
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:19"
+  wire width 1 $5
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:16"
+  wire width 16 $7
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:18"
+  wire width 16 $9
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:20"
+  wire width 16 $11
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:22"
+  wire width 17 $13
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:15"
+  cell $eq $2
+    parameter \B_SIGNED 0
+    parameter \A_SIGNED 0
+    parameter \Y_WIDTH 1
+    parameter \A_WIDTH 2
+    parameter \B_WIDTH 1
+    connect \B 1'0
+    connect \Y $1 
+    connect \A \sel 
+  end
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:17"
+  cell $eq $4
+    parameter \A_WIDTH 2
+    parameter \B_SIGNED 0
+    parameter \B_WIDTH 1
+    parameter \A_SIGNED 0
+    parameter \Y_WIDTH 1
+    connect \B 1'1
+    connect \Y $3 
+    connect \A \sel 
+  end
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:19"
+  cell $eq $6
+    parameter \B_SIGNED 0
+    parameter \B_WIDTH 2
+    parameter \A_SIGNED 0
+    parameter \Y_WIDTH 1
+    parameter \A_WIDTH 2
+    connect \Y $5 
+    connect \A \sel 
+    connect \B 2'10
+  end
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:16"
+  cell $or $8
+    parameter \A_SIGNED 0
+    parameter \B_SIGNED 0
+    parameter \Y_WIDTH 16
+    parameter \A_WIDTH 16
+    parameter \B_WIDTH 16
+    connect \Y $7 
+    connect \A \a 
+    connect \B \b 
+  end
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:18"
+  cell $and $10
+    parameter \Y_WIDTH 16
+    parameter \A_SIGNED 0
+    parameter \A_WIDTH 16
+    parameter \B_WIDTH 16
+    parameter \B_SIGNED 0
+    connect \A \a 
+    connect \Y $9 
+    connect \B \b 
+  end
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:20"
+  cell $xor $12
+    parameter \A_WIDTH 16
+    parameter \B_SIGNED 0
+    parameter \B_WIDTH 16
+    parameter \Y_WIDTH 16
+    parameter \A_SIGNED 0
+    connect \B \b 
+    connect \A \a 
+    connect \Y $11 
+  end
+  attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:22"
+  cell $sub $14
+    parameter \A_SIGNED 0
+    parameter \B_WIDTH 16
+    parameter \Y_WIDTH 17
+    parameter \B_SIGNED 0
+    parameter \A_WIDTH 16
+    connect \Y $13 
+    connect \A \a 
+    connect \B \b 
+  end
+  process $group_0
+    assign \o  16'0000000000000000
+    assign \co  1'0
+    attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:15"
+    switch {$5 $3 $1 }
+      attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:15"
+      case 3'--1
+        assign \o  $7 
+      attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:17"
+      case 3'-1-
+        assign \o  $9 
+      attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:19"
+      case 3'1--
+        assign \o  $11 
+      attribute \src "/Users/yehowshuaimmanuel/git/amaranth/examples/basic/alu.py:21"
+      case
+        assign {\co \o } $13 
+    end
+  end
+end
