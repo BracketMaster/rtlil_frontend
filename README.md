@@ -13,7 +13,7 @@ RTLIL frontend.
 
 Currently, one visitor implementation is provided, namely, dumper, which takes an RTLIL ast and converts it back into valid RTLIL text.
 
-``bin/parse.rs`` consumes an RTLIL file, generates and AST, and the uses
+``bin/parse.rs`` consumes an RTLIL file, generates an AST, and the uses
 dumper to generate RTLIL text again, which could be written to a file.
 
 # Using
